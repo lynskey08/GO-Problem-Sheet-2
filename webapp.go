@@ -15,14 +15,13 @@ func main() {
     })
 
     m.Get("/reverse/:name", func(ctx *macaron.Context) {
-        ctx.Data["Name"] = ctx.Params(":name") 
+        ctx.Data["Name"] = Reverse(ctx.Params(":name"))
         ctx.HTML(200, "hello") // 200 is the response code.
     })
 
     m.Run()
 }
 
-/*
 func Reverse(s string) string {
 	// Here we use runes in the reverse function to reverse a string.
 	//each character is taken as an individual element so we can loop through them
@@ -31,4 +30,4 @@ func Reverse(s string) string {
 		runes[i], runes[j] = runes[j], runes[i]
 	}
 	return string(runes)
-}*/
+}
